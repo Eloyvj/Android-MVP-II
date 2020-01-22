@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Movies Mvp</string>
+    <string name="mainmenu_title_item1">Movies</string>
+    <string name="mainmenu_title_item2">Favorites</string>
+
+    <string name="tools_message_movies_error">Um erro ocorreu. Por favor, tente novamente.</string>
+    <string name="button_main_load_movies">Carregar</string>
+    <string name="search_hint">Pesquisar por título...</string>
+    <string name="tools_message_favorite_list_empty">Não há filmes favoritados para exibir.</string>
+    <string name="favoritelist_empty_message">Nenhum filme favoritado para exibir.</string>
+    <string name="colorSwipedItem">#D32F2F</string>
+    <string name="tools_message_search_movie_empty">Nenhum resultado para exibir.</string>
+    <string name="searchview_empty_state_message">Nenhum filme encontrado.</string>
+    <string name="movieslist_status_error_get_favorites">O servidor demorou a responder para checar a lista de
+        favoritos. Tente novamante.
+    </string>
+    <string name="moviedetail_add_status_error_message">Ocorreu um erro ao adicionar filme. Tente novamante.</string>
+    <string name="moviedetail_add_success_message">Filme salvo com sucesso!</string>
+    <string name="moviedetail_remove_success_message">Filme removido com sucesso!</string>
+    <string name="moviedetail_remove_status_error_message">Ocorreu um erro ao remover o filme. Tente novamante.</string>
+    <string name="moviedetail_isfavorite_status_error_message">Não foi possível obter status de favorito agora. Tente
+        novamente.
+    </string>
+    <string name="favoritelist_get_favorites_status_error_message">O servidor demorou a recuperar a lista. Tente
+        novamente.
+    </string>
+    <string name="favoritelist_swipe_remove_item_message">Removido da lista!</string>
+    <string name="favoritelist_swipe_remove_undo_message">DESFAZER</string>
+    <string name="favoritelist_swipe_removeposition_status_error_message">Ocorreu um erro ao remover o filme. Tente
+        novamante.
+    </string>
+    <string name="favoritelist_swipe_restoreposition_status_error_message">Ocorreu um erro ao remover o filme. Tente
+        novamante.
+    </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

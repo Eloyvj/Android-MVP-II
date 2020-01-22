@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".features.popularmovieslist.PopularMoviesFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ViewFlipper
+            android:id="@+id/viewflipper_main_movies_list"
+            android:measureAllChildren="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <include
+                android:id="@+id/waiting_for_load"
+                layout="@layout/waiting_for_load">
+            </include>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_main_movies_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical"
+                android:visibility="invisible">
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <include android:id="@+id/error_message_and_load_retry"
+                layout="@layout/error_message_and_load_retry">
+            </include>
+
+            <include android:id="@+id/search_empty"
+                layout="@layout/search_empty">
+            </include>
+
+        </ViewFlipper>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
