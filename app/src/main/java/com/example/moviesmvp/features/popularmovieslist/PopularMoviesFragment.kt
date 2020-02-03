@@ -9,15 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moviesmvp.R
-import com.example.moviesmvp.features.data.mapper.MovieMapper
 import com.example.moviesmvp.features.data.model.Movie
-import com.example.moviesmvp.features.data.network.CreateRetrofit
-import com.example.moviesmvp.features.data.network.response.MoviesResult
 import kotlinx.android.synthetic.main.error_message_and_load_retry.*
 import kotlinx.android.synthetic.main.fragment_popular_movies.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+
 
 private const val POSITION_OF_LAYOUT_PROGRESS_BAR = 0
 private const val POSITION_OF_LAYOUT_MOVIES_LIST = 1
@@ -25,11 +20,10 @@ private const val POSITION_OF_LAYOUT_ERROR = 2
 private const val POSITION_OF_LAYOUT_SEARCH_EMPTY = 3
 private const val NUMBER_OF_COLUMNS = 2
 
-class PopularMoviesFragment : Fragment(), PopularMoviesFragmentContract.PopularMoviesView {
+class PopularMoviesFragment : Fragment(), PopularMoviesView {
+    private lateinit var presenter: PopularMoviesPresenter
     private lateinit var adapter: PopularMoviesAdapter
     private lateinit var gridLayoutManager: GridLayoutManager
-
-    private lateinit var presenter: PopularMoviesFragmentContract.PopularMoviesPresenter
 
     private var visibleItemCount = 0
     private var totalItemCount = 0

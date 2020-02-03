@@ -6,12 +6,16 @@ import com.example.moviesmvp.features.data.network.response.MoviesResult
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
-class PopularMoviesFragmentPresenter(view: PopularMoviesFragmentContract.PopularMoviesView)
-    : PopularMoviesFragmentContract.PopularMoviesPresenter {
+class PopularMoviesFragmentPresenter(view: PopularMoviesView)
+    : PopularMoviesPresenter {
 
-    private var view: PopularMoviesFragmentContract.PopularMoviesView?
-    private val createRetrofit: CreateRetrofit = CreateRetrofit()
+    private var view: PopularMoviesView?
+
+    /*@Inject
+    lateinit var createRetrofit: CreateRetrofit*/
+
     private var pageNumber: Int = 1
 
     init {
@@ -19,14 +23,14 @@ class PopularMoviesFragmentPresenter(view: PopularMoviesFragmentContract.Popular
     }
 
     override fun loadItems() {
-        view?.showProgressBar()
+        /*view?.showProgressBar()
         val apiKey = "5a436d513d8fcb4f4e4138c77c24ca2a"
         createRetrofit.getApiService().getPopularMovies(pageNumber++, apiKey).enqueue(object :
             Callback<MoviesResult> {
             override fun onResponse(call: Call<MoviesResult>, response: Response<MoviesResult>) {
                 if (response.isSuccessful) {
                     response.body()?.let {
-                        var listMovie = MovieMapper.fromResponseToMovieDomain(it.moviesResult)
+                        val listMovie = MovieMapper.fromResponseToMovieDomain(it.moviesResult)
                         view?.setUpListForAdapter(listMovie)
                     }
                 }
@@ -36,7 +40,7 @@ class PopularMoviesFragmentPresenter(view: PopularMoviesFragmentContract.Popular
                 view?.showErrorLayout()
                 view?.reloadFromError()
             }
-        })
+        })*/
     }
 
     override fun destroyView() {
