@@ -1,6 +1,6 @@
 package com.example.moviesmvp.features
 
-import com.example.moviesmvp.features.data.network.CreateRetrofit
+import com.example.moviesmvp.BuildConfig
 import com.example.moviesmvp.features.data.network.MyApiEndpointInterface
 import dagger.Module
 import dagger.Provides
@@ -24,9 +24,8 @@ open class ApiModule {
     @Provides
     @Singleton
     open fun providerCreateRetrofit(interceptor: OkHttpClient): Retrofit {
-        val url: String = "https://api.themoviedb.org/3/"
         return Retrofit.Builder()
-            .baseUrl(url)
+            .baseUrl(BuildConfig.base_url)
             .client(interceptor)
             .addConverterFactory(GsonConverterFactory.create())
             .build()

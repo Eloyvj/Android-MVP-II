@@ -1,15 +1,14 @@
 package com.example.moviesmvp.features
 
 import android.app.Application
-import androidx.core.content.ContextCompat.getSystemService
 
 class MainApplication: Application() {
 
     companion object {
-        private var component: Component? = null
+        private var mainComponent: MainComponent? = null
 
-        fun getComponent(): Component? {
-            return component
+        fun getComponent(): MainComponent? {
+            return mainComponent
         }
     }
 
@@ -19,7 +18,7 @@ class MainApplication: Application() {
     }
 
     private fun initDagger() {
-        component = DaggerComponent
+        mainComponent = DaggerMainComponent
             .builder()
             .build()
     }
