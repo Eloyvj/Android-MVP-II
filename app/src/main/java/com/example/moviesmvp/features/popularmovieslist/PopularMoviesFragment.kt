@@ -9,9 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moviesmvp.R
+import com.example.moviesmvp.features.MainApplication
+import com.example.moviesmvp.features.PopularMoviesModule
 import com.example.moviesmvp.features.data.model.Movie
 import kotlinx.android.synthetic.main.error_message_and_load_retry.*
 import kotlinx.android.synthetic.main.fragment_popular_movies.*
+import javax.inject.Inject
 
 
 private const val POSITION_OF_LAYOUT_PROGRESS_BAR = 0
@@ -21,7 +24,10 @@ private const val POSITION_OF_LAYOUT_SEARCH_EMPTY = 3
 private const val NUMBER_OF_COLUMNS = 2
 
 class PopularMoviesFragment : Fragment(), PopularMoviesView {
-    private lateinit var presenter: PopularMoviesPresenter
+
+    @Inject
+    lateinit var presenter: PopularMoviesPresenter
+
     private lateinit var adapter: PopularMoviesAdapter
     private lateinit var gridLayoutManager: GridLayoutManager
 
@@ -34,14 +40,21 @@ class PopularMoviesFragment : Fragment(), PopularMoviesView {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_popular_movies, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        presenter = PopularMoviesFragmentPresenter(this)
+        DaggerPopularMoviesComponent
+            .builder()
+            .mainComponent(MainApplication.getComponent())
+            .popularMoviesModule(PopularMoviesModule(this))
+            .build()
+            .inject(this)
+
+        /*presenter = PopularMoviesFragmentPresenter(this)*/
+        /*MainApplication.getComponent()?.inject(this)*/
 
         setUpRecyclerView()
         presenter.loadItems()

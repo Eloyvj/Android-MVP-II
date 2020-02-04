@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.moviesmvp.R
-import com.example.moviesmvp.features.data.mapper.MovieMapper
-import com.example.moviesmvp.features.data.network.CreateRetrofit
 import com.example.moviesmvp.features.data.network.MyApiEndpointInterface
 import com.example.moviesmvp.features.data.network.response.MoviesResult
 import retrofit2.Call
@@ -15,7 +13,7 @@ import javax.inject.Inject
 
 class TestClass: AppCompatActivity() {
 
-    @Inject
+    /*@Inject
     lateinit var createRetrofit: MyApiEndpointInterface
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,5 +37,5 @@ class TestClass: AppCompatActivity() {
             }
         })
 
-    }
+    }*/
 }
