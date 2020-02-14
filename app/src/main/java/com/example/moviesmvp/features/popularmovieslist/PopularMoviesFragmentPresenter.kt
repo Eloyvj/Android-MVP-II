@@ -1,14 +1,11 @@
 package com.example.moviesmvp.features.popularmovieslist
 
-import com.example.moviesmvp.features.MainApplication
 import com.example.moviesmvp.features.data.mapper.MovieMapper
-import com.example.moviesmvp.features.data.network.CreateRetrofit
 import com.example.moviesmvp.features.data.network.MyApiEndpointInterface
 import com.example.moviesmvp.features.data.network.response.MoviesResult
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import javax.inject.Inject
 
 class PopularMoviesFragmentPresenter (private val view: PopularMoviesView, private val createRetrofit: MyApiEndpointInterface) : PopularMoviesPresenter {
 

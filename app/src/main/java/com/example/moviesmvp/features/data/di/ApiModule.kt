@@ -1,4 +1,4 @@
-package com.example.moviesmvp.features
+package com.example.moviesmvp.features.data.di
 
 import com.example.moviesmvp.BuildConfig
 import com.example.moviesmvp.features.data.network.MyApiEndpointInterface

@@ -1,8 +1,7 @@
-package com.example.moviesmvp.features
+package com.example.moviesmvp.features.di
 
+import com.example.moviesmvp.features.data.di.ApiModule
 import com.example.moviesmvp.features.data.network.MyApiEndpointInterface
-import com.example.moviesmvp.features.popularmovieslist.PopularMoviesFragment
-import com.example.moviesmvp.features.popularmovieslist.PopularMoviesFragmentPresenter
 import dagger.Component
 import javax.inject.Singleton
 

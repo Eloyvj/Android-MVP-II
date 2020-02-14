@@ -1,4 +1,4 @@
-package com.example.moviesmvp.features
+package com.example.moviesmvp.features.popularmovieslist.di
 
 import com.example.moviesmvp.features.data.network.CreateRetrofit
 import com.example.moviesmvp.features.data.network.MyApiEndpointInterface

@@ -1,6 +1,8 @@
-package com.example.moviesmvp.features
+package com.example.moviesmvp.features.Application
 
 import android.app.Application
+import com.example.moviesmvp.features.di.DaggerMainComponent
+import com.example.moviesmvp.features.di.MainComponent
 
 class MainApplication: Application() {
 
@@ -18,8 +20,7 @@ class MainApplication: Application() {
     }
 
     private fun initDagger() {
-        mainComponent = DaggerMainComponent
-            .builder()
+        mainComponent = DaggerMainComponent.builder()
             .build()
     }
 }

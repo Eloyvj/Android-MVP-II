@@ -9,9 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moviesmvp.R
-import com.example.moviesmvp.features.MainApplication
-import com.example.moviesmvp.features.PopularMoviesModule
+import com.example.moviesmvp.features.Application.MainApplication
+import com.example.moviesmvp.features.popularmovieslist.di.PopularMoviesModule
 import com.example.moviesmvp.features.data.model.Movie
+import com.example.moviesmvp.features.popularmovieslist.di.DaggerPopularMoviesComponent
 import kotlinx.android.synthetic.main.error_message_and_load_retry.*
 import kotlinx.android.synthetic.main.fragment_popular_movies.*
 import javax.inject.Inject
@@ -49,7 +50,11 @@ class PopularMoviesFragment : Fragment(), PopularMoviesView {
         DaggerPopularMoviesComponent
             .builder()
             .mainComponent(MainApplication.getComponent())
-            .popularMoviesModule(PopularMoviesModule(this))
+            .popularMoviesModule(
+                PopularMoviesModule(
+                    this
+                )
+            )
             .build()
             .inject(this)
 
