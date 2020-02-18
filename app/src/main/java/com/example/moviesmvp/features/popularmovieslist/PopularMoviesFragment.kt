@@ -58,9 +58,6 @@ class PopularMoviesFragment : Fragment(), PopularMoviesView {
             .build()
             .inject(this)
 
-        /*presenter = PopularMoviesFragmentPresenter(this)*/
-        /*MainApplication.getComponent()?.inject(this)*/
-
         setUpRecyclerView()
         presenter.loadItems()
         setUpRecyclerView()
