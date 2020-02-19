@@ -1,4 +1,4 @@
-package com.example.moviesmvp.features
+package com.example.moviesmvp.features.di
 
 import java.lang.annotation.Retention
 import java.lang.annotation.RetentionPolicy

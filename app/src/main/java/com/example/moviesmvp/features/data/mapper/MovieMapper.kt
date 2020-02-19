@@ -5,7 +5,6 @@ import com.example.moviesmvp.features.data.network.response.MovieResponse
 
 class MovieMapper {
 
-    companion object {
         fun fromResponseToMovieDomain(movieResponseList: List<MovieResponse>) : List<Movie> {
             var moviesList = mutableListOf<Movie>()
 
@@ -18,5 +17,4 @@ class MovieMapper {
 
             return moviesList
         }
-    }
 }

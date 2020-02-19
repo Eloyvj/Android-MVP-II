@@ -1,11 +1,12 @@
-package com.example.moviesmvp.features
+package com.example.moviesmvp.features.popularmovieslist.di
 
-import com.example.moviesmvp.features.data.network.CreateRetrofit
 import com.example.moviesmvp.features.data.network.MyApiEndpointInterface
-import com.example.moviesmvp.features.popularmovieslist.*
+import com.example.moviesmvp.features.popularmovieslist.PopularMoviesFragment
+import com.example.moviesmvp.features.popularmovieslist.PopularMoviesFragmentPresenterImpl
+import com.example.moviesmvp.features.popularmovieslist.PopularMoviesPresenter
+import com.example.moviesmvp.features.popularmovieslist.PopularMoviesView
 import dagger.Module
 import dagger.Provides
-import javax.inject.Singleton
 
 @Module
 open class PopularMoviesModule(var view: PopularMoviesView) {
@@ -22,6 +23,6 @@ open class PopularMoviesModule(var view: PopularMoviesView) {
 
     @Provides
     open fun providerPopularMoviesPresenter(createRetrofit: MyApiEndpointInterface): PopularMoviesPresenter {
-        return PopularMoviesFragmentPresenter(view, createRetrofit)
+        return PopularMoviesFragmentPresenterImpl(view)
     }
 }

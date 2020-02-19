@@ -1,4 +1,4 @@
-package com.example.moviesmvp.features
+package com.example.moviesmvp.features.data.network.di
 
 import com.example.moviesmvp.BuildConfig
 import com.example.moviesmvp.features.data.network.MyApiEndpointInterface
@@ -7,6 +7,7 @@ import dagger.Provides
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
@@ -26,6 +27,7 @@ open class ApiModule {
     open fun providerCreateRetrofit(interceptor: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BuildConfig.base_url)
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .client(interceptor)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
