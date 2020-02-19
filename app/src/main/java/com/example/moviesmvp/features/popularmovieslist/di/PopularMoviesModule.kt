@@ -9,12 +9,7 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-open class PopularMoviesModule(var view: PopularMoviesView) {
-
-    @Provides
-    open fun provideViewForThisModule() : PopularMoviesView {
-        return this.view
-    }
+open class PopularMoviesModule(private val view: PopularMoviesView) {
 
     @Provides
     open fun providerPopularMoviesView(): PopularMoviesView {
@@ -22,7 +17,7 @@ open class PopularMoviesModule(var view: PopularMoviesView) {
     }
 
     @Provides
-    open fun providerPopularMoviesPresenter(createRetrofit: MyApiEndpointInterface): PopularMoviesPresenter {
+    open fun providerPopularMoviesPresenter(): PopularMoviesPresenter {
         return PopularMoviesFragmentPresenterImpl(view)
     }
 }
