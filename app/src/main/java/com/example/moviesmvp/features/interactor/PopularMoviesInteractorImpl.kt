@@ -9,7 +9,7 @@ import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
-class PopularMoviesInteractorImpl (val retrofit: MyApiEndpointInterface
+class PopularMoviesInteractorImpl (private val retrofit: MyApiEndpointInterface
 ): PopularMoviesInteractor {
 
     @Inject
