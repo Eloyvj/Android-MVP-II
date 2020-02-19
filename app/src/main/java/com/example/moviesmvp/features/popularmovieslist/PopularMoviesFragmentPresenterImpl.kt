@@ -7,6 +7,7 @@ import com.example.moviesmvp.features.interactor.PopularMoviesInteractor
 import com.example.moviesmvp.features.interactor.di.DaggerInteractorComponent
 
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.internal.subscriptions.SubscriptionHelper
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
