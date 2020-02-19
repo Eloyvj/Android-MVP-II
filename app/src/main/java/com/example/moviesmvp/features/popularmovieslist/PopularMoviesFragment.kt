@@ -49,7 +49,6 @@ class PopularMoviesFragment : Fragment(), PopularMoviesView {
 
         DaggerPopularMoviesComponent
             .builder()
-            .mainComponent(MainApplication.getComponent())
             .popularMoviesModule(
                 PopularMoviesModule(
                     this

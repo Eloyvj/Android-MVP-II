@@ -6,7 +6,7 @@ import com.example.moviesmvp.features.popularmovieslist.PopularMoviesFragment
 import dagger.Component
 
 @ActivityScope
-@Component(dependencies = [MainComponent::class], modules = [PopularMoviesModule::class])
+@Component(modules = [PopularMoviesModule::class])
 interface PopularMoviesComponent {
     fun inject (fragment: PopularMoviesFragment)
 }

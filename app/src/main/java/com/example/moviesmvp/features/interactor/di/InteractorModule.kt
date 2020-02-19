@@ -9,7 +9,7 @@ import dagger.Provides
 @Module
 open class InteractorModule {
     @Provides
-    open fun providerPopularMoviesInteractor(createRetrofit: MyApiEndpointInterface): PopularMoviesInteractor {
-        return PopularMoviesInteractorImpl(createRetrofit)
+    open fun providerPopularMoviesInteractor(retrofit: MyApiEndpointInterface): PopularMoviesInteractor {
+        return PopularMoviesInteractorImpl(retrofit)
     }
 }
