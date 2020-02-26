@@ -11,15 +11,13 @@ import dagger.Provides
 @Module
 open class PopularMoviesModule(private val view: PopularMoviesView) {
 
-    private val baseSchedulers = BaseSchedulersImpl()
-
     @Provides
     open fun providerPopularMoviesView(): PopularMoviesView {
         return PopularMoviesFragment()
     }
 
     @Provides
-    open fun providerPopularMoviesPresenter(): PopularMoviesPresenter {
-        return PopularMoviesFragmentPresenterImpl(view, baseSchedulers)
+    open fun providerPopularMoviesPresenter(baseSchedulersImpl: BaseSchedulersImpl): PopularMoviesPresenter {
+        return PopularMoviesFragmentPresenterImpl(view, baseSchedulersImpl)
     }
 }

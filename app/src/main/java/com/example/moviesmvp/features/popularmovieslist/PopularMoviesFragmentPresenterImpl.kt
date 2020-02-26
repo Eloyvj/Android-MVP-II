@@ -1,6 +1,6 @@
 package com.example.moviesmvp.features.popularmovieslist
 
-import com.example.moviesmvp.features.Application.MainApplication
+import com.example.moviesmvp.features.Application.App
 import com.example.moviesmvp.features.baseSchedulers.BaseSchedulers
 import com.example.moviesmvp.features.interactor.di.InteractorModule
 import com.example.moviesmvp.features.interactor.PopularMoviesInteractor
@@ -21,7 +21,7 @@ class PopularMoviesFragmentPresenterImpl (private val view: PopularMoviesView,
     init {
         DaggerInteractorComponent
             .builder()
-            .mainComponent(MainApplication.getComponent())
+            .appComponent(App.getComponent())
             .interactorModule(InteractorModule())
             .build()
             .inject(this)

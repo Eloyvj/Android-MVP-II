@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moviesmvp.R
-import com.example.moviesmvp.features.Application.MainApplication
+import com.example.moviesmvp.features.Application.App
 import com.example.moviesmvp.features.popularmovieslist.di.PopularMoviesModule
 import com.example.moviesmvp.features.data.model.Movie
 import com.example.moviesmvp.features.popularmovieslist.di.DaggerPopularMoviesComponent
@@ -49,6 +49,7 @@ class PopularMoviesFragment : Fragment(), PopularMoviesView {
 
         DaggerPopularMoviesComponent
             .builder()
+            .appComponent(App.getComponent())
             .popularMoviesModule(
                 PopularMoviesModule(
                     this
