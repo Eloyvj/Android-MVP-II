@@ -1,6 +1,6 @@
 package com.example.moviesmvp.features.popularmovieslist.di
 
-import com.example.moviesmvp.features.data.network.MyApiEndpointInterface
+import com.example.moviesmvp.features.baseSchedulers.BaseSchedulersImpl
 import com.example.moviesmvp.features.popularmovieslist.PopularMoviesFragment
 import com.example.moviesmvp.features.popularmovieslist.PopularMoviesFragmentPresenterImpl
 import com.example.moviesmvp.features.popularmovieslist.PopularMoviesPresenter
@@ -11,6 +11,8 @@ import dagger.Provides
 @Module
 open class PopularMoviesModule(private val view: PopularMoviesView) {
 
+    private val baseSchedulers = BaseSchedulersImpl()
+
     @Provides
     open fun providerPopularMoviesView(): PopularMoviesView {
         return PopularMoviesFragment()
@@ -18,6 +20,6 @@ open class PopularMoviesModule(private val view: PopularMoviesView) {
 
     @Provides
     open fun providerPopularMoviesPresenter(): PopularMoviesPresenter {
-        return PopularMoviesFragmentPresenterImpl(view)
+        return PopularMoviesFragmentPresenterImpl(view, baseSchedulers)
     }
 }
