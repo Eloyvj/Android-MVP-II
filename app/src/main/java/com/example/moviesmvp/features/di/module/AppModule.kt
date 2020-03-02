@@ -2,6 +2,7 @@ package com.example.moviesmvp.features.di.module
 
 import android.app.Application
 import com.example.moviesmvp.features.baseSchedulers.BaseSchedulersImpl
+import com.example.moviesmvp.features.data.mapper.MovieMapper
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
@@ -25,4 +26,8 @@ class AppModule(val application: Application) {
     @Provides
     @Singleton
     fun provideSchedulerProvider() = BaseSchedulersImpl()
+
+    @Provides
+    @Singleton
+    fun provideMovieMapper() = MovieMapper()
 }

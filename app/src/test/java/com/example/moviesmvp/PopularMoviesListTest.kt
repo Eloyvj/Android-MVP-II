@@ -1,5 +1,6 @@
 package com.example.moviesmvp
 
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.moviesmvp.features.data.mapper.MovieMapper
 import com.example.moviesmvp.features.data.network.response.MovieResponse
 import com.example.moviesmvp.features.interactor.PopularMoviesInteractor
@@ -14,12 +15,16 @@ import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.Observable
 import io.reactivex.schedulers.TestScheduler
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 
 @RunWith(JUnit4::class)
 class PopularMoviesListTest {
+
+    @get:Rule
+    val instaRule = InstantTaskExecutorRule()
 
     val view: PopularMoviesView = mock()
 

@@ -3,6 +3,7 @@ package com.example.moviesmvp.features.di
 import android.app.Application
 import android.content.res.Resources
 import com.example.moviesmvp.features.baseSchedulers.BaseSchedulersImpl
+import com.example.moviesmvp.features.data.mapper.MovieMapper
 import com.example.moviesmvp.features.data.network.MyApiEndpointInterface
 import com.example.moviesmvp.features.di.module.ApiModule
 import com.example.moviesmvp.features.di.module.AppModule
@@ -29,4 +30,5 @@ interface AppComponent {
     fun client(): OkHttpClient
     fun logginInterceptor(): HttpLoggingInterceptor
     fun schedulerProvider(): BaseSchedulersImpl
+    fun movieMapper(): MovieMapper
 }
