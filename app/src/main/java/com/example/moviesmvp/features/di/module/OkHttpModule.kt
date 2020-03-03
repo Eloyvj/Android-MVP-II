@@ -32,7 +32,7 @@ class OkHttpModule {
                 .build()
 
             requestBuilder.cacheControl(cacheControl)
-            requestBuilder.header("Content-Type", "application/json")
+            requestBuilder.header("Content-Type", "application/popularmoviesmocks")
             val request = requestBuilder.build()
 
             val originalResponse = chain.proceed(request)

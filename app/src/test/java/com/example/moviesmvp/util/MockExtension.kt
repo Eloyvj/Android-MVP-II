@@ -1,4 +1,4 @@
-package com.example.moviesmvp
+package com.example.moviesmvp.util
 
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken

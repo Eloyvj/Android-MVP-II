@@ -1,6 +1,5 @@
 package com.example.moviesmvp
 
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.moviesmvp.features.data.mapper.MovieMapper
 import com.example.moviesmvp.features.data.network.response.MovieResponse
 import com.example.moviesmvp.features.interactor.PopularMoviesInteractor
@@ -8,53 +7,49 @@ import com.example.moviesmvp.features.popularmovieslist.PopularMoviesFragmentPre
 import com.example.moviesmvp.features.popularmovieslist.PopularMoviesPresenter
 import com.example.moviesmvp.features.popularmovieslist.PopularMoviesView
 import com.example.moviesmvp.util.TestSchedulersProvider
-import com.nhaarman.mockitokotlin2.any
+import com.example.moviesmvp.util.loadJson
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.Observable
 import io.reactivex.schedulers.TestScheduler
-import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
+import org.mockito.Mockito
 
 @RunWith(JUnit4::class)
 class PopularMoviesListTest {
-
-    @get:Rule
-    val instaRule = InstantTaskExecutorRule()
 
     val view: PopularMoviesView = mock()
 
     val interactor: PopularMoviesInteractor = mock()
 
-    private lateinit var presenter: PopularMoviesPresenter
-
-    private lateinit var schedulerProvider: TestSchedulersProvider
+    var presenter: PopularMoviesPresenter
 
     val mapper = MovieMapper()
 
-    val scheduler = TestScheduler()
+    private var testScheduler: TestScheduler
 
-
-    @Before
-    fun setUp() {
-        schedulerProvider = TestSchedulersProvider(scheduler)
-        presenter = PopularMoviesFragmentPresenterImpl(view, schedulerProvider)
+    init {
+        testScheduler = TestScheduler()
+        val testSchedulerProvider = TestSchedulersProvider(testScheduler)
+        presenter = PopularMoviesFragmentPresenterImpl(view, testSchedulerProvider, interactor)
     }
 
     @Test
-    fun `xpto`() {
+    fun `send popular movies list for adapter after fetch from api`() {
         val list = mapper.fromResponseToMovieDomain(mockPopularMoviesList())
-        whenever(interactor.fetchPopularMovies(any())).thenReturn(Observable.just(list))
-        schedulerProvider.io().triggerActions()
-        verify(view).setUpListForAdapter(list)
+        whenever(interactor.fetchPopularMovies(1)).thenReturn(Observable.just(list))
 
+        presenter.loadItems()
+
+        testScheduler.triggerActions()
+
+        verify(view, Mockito.times(1)).setUpListForAdapter(list)
     }
 
     private fun mockPopularMoviesList(): List<MovieResponse> {
-        return loadJson("/json/popular_movies.json")
+        return loadJson("/popular_movies.json")
     }
 }
