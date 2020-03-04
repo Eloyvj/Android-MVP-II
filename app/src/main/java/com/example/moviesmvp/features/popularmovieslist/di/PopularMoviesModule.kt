@@ -1,6 +1,10 @@
 package com.example.moviesmvp.features.popularmovieslist.di
 
+import com.example.moviesmvp.features.baseSchedulers.BaseSchedulersImpl
+import com.example.moviesmvp.features.data.mapper.MovieMapper
 import com.example.moviesmvp.features.data.network.MyApiEndpointInterface
+import com.example.moviesmvp.features.interactor.PopularMoviesInteractor
+import com.example.moviesmvp.features.interactor.PopularMoviesInteractorImpl
 import com.example.moviesmvp.features.popularmovieslist.PopularMoviesFragment
 import com.example.moviesmvp.features.popularmovieslist.PopularMoviesFragmentPresenterImpl
 import com.example.moviesmvp.features.popularmovieslist.PopularMoviesPresenter
@@ -17,7 +21,15 @@ open class PopularMoviesModule(private val view: PopularMoviesView) {
     }
 
     @Provides
-    open fun providerPopularMoviesPresenter(): PopularMoviesPresenter {
-        return PopularMoviesFragmentPresenterImpl(view)
+    open fun providerPopularMoviesInteractor(retrofit: MyApiEndpointInterface,
+                                             baseSchedulers: BaseSchedulersImpl,
+                                             movieMapper: MovieMapper): PopularMoviesInteractor {
+        return PopularMoviesInteractorImpl(retrofit, baseSchedulers, movieMapper)
+    }
+
+    @Provides
+    open fun providerPopularMoviesPresenter(baseSchedulers: BaseSchedulersImpl,
+                                            interactor: PopularMoviesInteractor): PopularMoviesPresenter {
+        return PopularMoviesFragmentPresenterImpl(view, baseSchedulers, interactor)
     }
 }
