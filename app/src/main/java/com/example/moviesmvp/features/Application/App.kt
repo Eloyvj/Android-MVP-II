@@ -5,7 +5,7 @@ import com.example.moviesmvp.features.di.AppComponent
 import com.example.moviesmvp.features.di.DaggerAppComponent
 import com.example.moviesmvp.features.di.module.AppModule
 
-class App: Application() {
+open class App: Application() {
 
     companion object {
         @JvmStatic lateinit var appComponent: AppComponent
@@ -20,7 +20,7 @@ class App: Application() {
         initDagger()
     }
 
-    private fun initDagger() {
+    open fun initDagger() {
         appComponent = DaggerAppComponent.builder().appModule(AppModule(this)).build()
     }
 }
