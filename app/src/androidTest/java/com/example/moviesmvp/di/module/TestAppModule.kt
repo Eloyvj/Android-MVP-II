@@ -6,6 +6,7 @@ import com.example.moviesmvp.features.data.mapper.MovieMapper
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
+import okhttp3.mockwebserver.MockWebServer
 import javax.inject.Singleton
 
 @Module
