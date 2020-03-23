@@ -1,8 +1,8 @@
 package com.example.moviesmvp.features.popularmovieslist.di
 
-import com.example.moviesmvp.features.baseSchedulers.BaseSchedulersImpl
-import com.example.moviesmvp.features.data.mapper.MovieMapper
-import com.example.moviesmvp.features.data.network.MyApiEndpointInterface
+import com.example.moviesmvp.baseSchedulers.BaseSchedulersImpl
+import com.example.moviesmvp.data.mapper.MovieMapper
+import com.example.moviesmvp.data.network.MyApiEndpointInterface
 import com.example.moviesmvp.features.interactor.PopularMoviesInteractor
 import com.example.moviesmvp.features.interactor.PopularMoviesInteractorImpl
 import com.example.moviesmvp.features.popularmovieslist.PopularMoviesFragment

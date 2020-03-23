@@ -1,6 +1,6 @@
 package com.example.moviesmvp.util
 
-import com.example.moviesmvp.features.baseSchedulers.BaseSchedulers
+import com.example.moviesmvp.baseSchedulers.BaseSchedulers
 import io.reactivex.schedulers.TestScheduler
 
 class TestSchedulersProvider constructor(private val testScheduler: TestScheduler): BaseSchedulers {

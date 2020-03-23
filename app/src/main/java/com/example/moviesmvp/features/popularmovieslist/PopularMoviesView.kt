@@ -1,6 +1,6 @@
 package com.example.moviesmvp.features.popularmovieslist
 
-import com.example.moviesmvp.features.data.model.Movie
+import com.example.moviesmvp.data.model.Movie
 
 interface PopularMoviesView {
 

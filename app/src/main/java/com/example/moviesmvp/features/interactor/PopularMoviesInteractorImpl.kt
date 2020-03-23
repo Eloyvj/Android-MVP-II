@@ -1,9 +1,9 @@
 package com.example.moviesmvp.features.interactor
 
-import com.example.moviesmvp.features.baseSchedulers.BaseSchedulers
-import com.example.moviesmvp.features.data.mapper.MovieMapper
-import com.example.moviesmvp.features.data.model.Movie
-import com.example.moviesmvp.features.data.network.MyApiEndpointInterface
+import com.example.moviesmvp.baseSchedulers.BaseSchedulers
+import com.example.moviesmvp.data.mapper.MovieMapper
+import com.example.moviesmvp.data.model.Movie
+import com.example.moviesmvp.data.network.MyApiEndpointInterface
 import io.reactivex.Observable
 
 class PopularMoviesInteractorImpl (private val retrofit: MyApiEndpointInterface,
