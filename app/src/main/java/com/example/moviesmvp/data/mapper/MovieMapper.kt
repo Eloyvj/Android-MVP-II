@@ -1,7 +1,7 @@
-package com.example.moviesmvp.features.data.mapper
+package com.example.moviesmvp.data.mapper
 
-import com.example.moviesmvp.features.data.model.Movie
-import com.example.moviesmvp.features.data.network.response.MovieResponse
+import com.example.moviesmvp.data.model.Movie
+import com.example.moviesmvp.data.network.response.MovieResponse
 
 class MovieMapper {
 

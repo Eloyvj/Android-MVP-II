@@ -1,6 +1,6 @@
 package com.example.moviesmvp.features.popularmovieslist
 
-import com.example.moviesmvp.features.baseSchedulers.BaseSchedulers
+import com.example.moviesmvp.baseSchedulers.BaseSchedulers
 import com.example.moviesmvp.features.interactor.PopularMoviesInteractor
 
 class PopularMoviesFragmentPresenterImpl (private val view: PopularMoviesView,

@@ -1,4 +1,4 @@
-package com.example.moviesmvp.features.di.module
+package com.example.moviesmvp.di.module
 
 import com.example.moviesmvp.BuildConfig
 import dagger.Module

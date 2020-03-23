@@ -1,4 +1,4 @@
-package com.example.moviesmvp.features.baseSchedulers
+package com.example.moviesmvp.baseSchedulers
 
 import io.reactivex.Scheduler
 

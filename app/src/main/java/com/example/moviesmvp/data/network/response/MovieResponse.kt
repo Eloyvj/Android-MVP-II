@@ -1,4 +1,4 @@
-package com.example.moviesmvp.features.data.network.response
+package com.example.moviesmvp.data.network.response
 
 import com.google.gson.annotations.SerializedName
 

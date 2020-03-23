@@ -1,4 +1,4 @@
-package com.example.moviesmvp.popularmovieslist
+package com.example.moviesmvp.featuresandroidtest.popularmoviesandroid
 
 import android.widget.EditText
 import androidx.test.espresso.Espresso.onView
@@ -13,7 +13,6 @@ import androidx.test.espresso.intent.matcher.IntentMatchers.hasExtra
 import androidx.test.espresso.intent.rule.IntentsTestRule
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.*
-import androidx.test.platform.app.InstrumentationRegistry
 import com.example.moviesmvp.BaseTestRobot
 import com.example.moviesmvp.features.popularmovieslist.PopularMoviesActivity
 import com.example.moviesmvp.features.popularmovieslist.PopularMoviesAdapter
@@ -24,8 +23,6 @@ import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
 import okhttp3.mockwebserver.RecordedRequest
 import org.hamcrest.CoreMatchers.allOf
-import java.io.BufferedReader
-import java.io.InputStream
 
 fun popularMoviesList(func: PopularMoviesListRobot.() -> Unit) = PopularMoviesListRobot().apply { func() }
 

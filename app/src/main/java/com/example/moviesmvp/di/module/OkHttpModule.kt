@@ -1,4 +1,4 @@
-package com.example.moviesmvp.features.di.module
+package com.example.moviesmvp.di.module
 
 import android.app.Application
 import com.facebook.stetho.okhttp3.StethoInterceptor

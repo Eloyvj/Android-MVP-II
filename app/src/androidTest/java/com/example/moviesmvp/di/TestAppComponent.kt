@@ -1,26 +1,11 @@
 package com.example.moviesmvp.di
 
-import android.app.Application
-import android.content.res.Resources
 import com.example.moviesmvp.di.module.TestApiModule
 import com.example.moviesmvp.di.module.TestAppModule
 import com.example.moviesmvp.di.module.TestOkHttpModule
 import com.example.moviesmvp.di.module.TestRetrofitModule
-import com.example.moviesmvp.features.baseSchedulers.BaseSchedulersImpl
-import com.example.moviesmvp.features.data.mapper.MovieMapper
-import com.example.moviesmvp.features.data.network.MyApiEndpointInterface
-import com.example.moviesmvp.features.di.AppComponent
-import com.example.moviesmvp.features.popularmovieslist.PopularMoviesFragment
-import com.example.moviesmvp.popularmovieslist.PopularMoviesListAndroidTest
-import com.google.gson.Gson
-import dagger.BindsInstance
+import com.example.moviesmvp.featuresandroidtest.popularmoviesandroid.PopularMoviesListAndroidTest
 import dagger.Component
-import okhttp3.Cache
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import okhttp3.mockwebserver.MockWebServer
-import retrofit2.Retrofit
-import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton

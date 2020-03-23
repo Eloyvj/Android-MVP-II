@@ -1,6 +1,6 @@
-package com.example.moviesmvp.features.di.module
+package com.example.moviesmvp.di.module
 
-import com.example.moviesmvp.features.data.network.MyApiEndpointInterface
+import com.example.moviesmvp.data.network.MyApiEndpointInterface
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit

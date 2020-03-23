@@ -1,10 +1,9 @@
-package com.example.moviesmvp.features.Application
+package com.example.moviesmvp.Application
 
 import android.app.Application
-import android.content.Context
-import com.example.moviesmvp.features.di.AppComponent
-import com.example.moviesmvp.features.di.DaggerAppComponent
-import com.example.moviesmvp.features.di.module.AppModule
+import com.example.moviesmvp.di.AppComponent
+import com.example.moviesmvp.di.DaggerAppComponent
+import com.example.moviesmvp.di.module.AppModule
 
 open class App: Application() {
 

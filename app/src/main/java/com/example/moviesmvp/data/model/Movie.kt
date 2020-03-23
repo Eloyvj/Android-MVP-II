@@ -1,4 +1,4 @@
-package com.example.moviesmvp.features.data.model
+package com.example.moviesmvp.data.model
 
 class Movie (
     val id: Int,

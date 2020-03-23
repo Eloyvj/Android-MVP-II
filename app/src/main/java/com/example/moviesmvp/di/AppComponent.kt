@@ -1,14 +1,14 @@
-package com.example.moviesmvp.features.di
+package com.example.moviesmvp.di
 
 import android.app.Application
 import android.content.res.Resources
-import com.example.moviesmvp.features.baseSchedulers.BaseSchedulersImpl
-import com.example.moviesmvp.features.data.mapper.MovieMapper
-import com.example.moviesmvp.features.data.network.MyApiEndpointInterface
-import com.example.moviesmvp.features.di.module.ApiModule
-import com.example.moviesmvp.features.di.module.AppModule
-import com.example.moviesmvp.features.di.module.OkHttpModule
-import com.example.moviesmvp.features.di.module.RetrofitModule
+import com.example.moviesmvp.baseSchedulers.BaseSchedulersImpl
+import com.example.moviesmvp.data.mapper.MovieMapper
+import com.example.moviesmvp.data.network.MyApiEndpointInterface
+import com.example.moviesmvp.di.module.ApiModule
+import com.example.moviesmvp.di.module.AppModule
+import com.example.moviesmvp.di.module.OkHttpModule
+import com.example.moviesmvp.di.module.RetrofitModule
 import com.google.gson.Gson
 import dagger.Component
 import okhttp3.Cache

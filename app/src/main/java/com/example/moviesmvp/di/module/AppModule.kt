@@ -1,8 +1,8 @@
-package com.example.moviesmvp.features.di.module
+package com.example.moviesmvp.di.module
 
 import android.app.Application
-import com.example.moviesmvp.features.baseSchedulers.BaseSchedulersImpl
-import com.example.moviesmvp.features.data.mapper.MovieMapper
+import com.example.moviesmvp.baseSchedulers.BaseSchedulersImpl
+import com.example.moviesmvp.data.mapper.MovieMapper
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides

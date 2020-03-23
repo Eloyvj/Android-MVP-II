@@ -3,7 +3,7 @@ package com.example.moviesmvp.testApplication
 import com.example.moviesmvp.di.DaggerTestAppComponent
 import com.example.moviesmvp.di.TestAppComponent
 import com.example.moviesmvp.di.module.TestAppModule
-import com.example.moviesmvp.features.Application.App
+import com.example.moviesmvp.Application.App
 
 class TestApplication : App() {
 

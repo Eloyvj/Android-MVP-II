@@ -1,7 +1,7 @@
-package com.example.moviesmvp.popularmovieslist
+package com.example.moviesmvp.featuresunittest.popularmoviesunit
 
-import com.example.moviesmvp.features.data.mapper.MovieMapper
-import com.example.moviesmvp.features.data.network.response.MovieResponse
+import com.example.moviesmvp.data.mapper.MovieMapper
+import com.example.moviesmvp.data.network.response.MovieResponse
 import com.example.moviesmvp.features.interactor.PopularMoviesInteractor
 import com.example.moviesmvp.features.popularmovieslist.PopularMoviesFragmentPresenterImpl
 import com.example.moviesmvp.features.popularmovieslist.PopularMoviesPresenter

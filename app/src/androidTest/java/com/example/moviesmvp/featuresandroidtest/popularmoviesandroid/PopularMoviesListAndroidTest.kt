@@ -1,8 +1,6 @@
-package com.example.moviesmvp.popularmovieslist
+package com.example.moviesmvp.featuresandroidtest.popularmoviesandroid
 
-import androidx.test.espresso.Espresso
 import androidx.test.espresso.intent.rule.IntentsTestRule
-import androidx.test.espresso.remote.EspressoRemoteMessage
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.example.moviesmvp.R
@@ -12,13 +10,10 @@ import com.example.moviesmvp.di.module.TestApiModule
 import com.example.moviesmvp.di.module.TestAppModule
 import com.example.moviesmvp.di.module.TestOkHttpModule
 import com.example.moviesmvp.di.module.TestRetrofitModule
-import com.example.moviesmvp.features.Application.App
+import com.example.moviesmvp.Application.App
 import com.example.moviesmvp.features.popularmovieslist.PopularMoviesActivity
 import com.example.moviesmvp.testApplication.TestApplication
-import com.jakewharton.espresso.OkHttp3IdlingResource
-import okhttp3.OkHttpClient
 import okhttp3.mockwebserver.MockWebServer
-import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test

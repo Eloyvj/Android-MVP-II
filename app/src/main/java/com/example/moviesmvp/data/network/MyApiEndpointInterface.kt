@@ -1,9 +1,7 @@
-package com.example.moviesmvp.features.data.network
+package com.example.moviesmvp.data.network
 
-import com.example.moviesmvp.features.data.network.response.MovieResponse
-import com.example.moviesmvp.features.data.network.response.MoviesResult
+import com.example.moviesmvp.data.network.response.MoviesResult
 import io.reactivex.Observable
-import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
