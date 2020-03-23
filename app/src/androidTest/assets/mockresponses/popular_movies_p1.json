@@ -1,5 +1,6 @@
-[
-   {
+{
+  "results": [
+    {
       "poster_path": "/aQvJ5WPzZgYVDrxLX4R6cLJCEaQ.jpg",
       "id": 454626,
       "original_title": "Sonic the Hedgehog"
@@ -99,6 +100,6 @@
       "id": 522162,
       "original_title": "Midway"
     }
-]
-
+  ]
+}
 

@@ -1,6 +1,8 @@
 package com.example.moviesmvp.popularmovieslist
 
+import androidx.test.espresso.Espresso
 import androidx.test.espresso.intent.rule.IntentsTestRule
+import androidx.test.espresso.remote.EspressoRemoteMessage
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.example.moviesmvp.R
@@ -12,7 +14,11 @@ import com.example.moviesmvp.di.module.TestOkHttpModule
 import com.example.moviesmvp.di.module.TestRetrofitModule
 import com.example.moviesmvp.features.Application.App
 import com.example.moviesmvp.features.popularmovieslist.PopularMoviesActivity
+import com.example.moviesmvp.testApplication.TestApplication
+import com.jakewharton.espresso.OkHttp3IdlingResource
+import okhttp3.OkHttpClient
 import okhttp3.mockwebserver.MockWebServer
+import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -23,7 +29,7 @@ import javax.inject.Inject
 @RunWith(AndroidJUnit4::class)
 class PopularMoviesListAndroidTest {
 
-    private val popularMoviesListFake = "popular_movies_full.json"
+    private val popularMoviesListFake = "popular_movies_p1.json"
     private lateinit var testAppComponent: TestAppComponent
 
     @Inject
@@ -35,7 +41,7 @@ class PopularMoviesListAndroidTest {
 
     @Before
     fun setUp() {
-        val app = InstrumentationRegistry.getInstrumentation().getTargetContext().getApplicationContext() as App
+        val app: TestApplication by lazy { InstrumentationRegistry.getInstrumentation().targetContext.applicationContext as TestApplication }
         testAppComponent = DaggerTestAppComponent.builder()
             .testAppModule(TestAppModule(app))
             .testApiModule(TestApiModule())
@@ -51,10 +57,6 @@ class PopularMoviesListAndroidTest {
         popularMoviesList {
             mockService(popularMoviesListFake, mockWebServer)
             launchActivity(mActivityTestRule)
-
-            var test: String = "TESTE - CARREGOU"
-            System.out.println("===${test}")
-
             scrollToPositionInList(R.id.recyclerview_main_movies_list, 0)
             movieTitleIsDisplayed("Sonic the Hedgehog")
             moviePosterIsDisplayed(
@@ -63,5 +65,4 @@ class PopularMoviesListAndroidTest {
             )
         }
     }
-
 }

@@ -1,6 +1,5 @@
 package com.example.moviesmvp.di.module
 
-import com.example.moviesmvp.BuildConfig
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -10,8 +9,9 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
+
 @Module
-class TestRetrofitModule {
+class TestRetrofitModule() {
 
     private val mockWebServer: MockWebServer by lazy { MockWebServer() }
 

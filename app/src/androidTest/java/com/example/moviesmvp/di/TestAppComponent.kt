@@ -27,7 +27,7 @@ import javax.inject.Singleton
 @Component(modules = [TestApiModule::class, TestAppModule::class, TestOkHttpModule::class, TestRetrofitModule::class])
 interface TestAppComponent : AppComponent {
 
-    /*override fun application(): Application
+  /*  override fun application(): Application
     override fun gson(): Gson
     override fun resources(): Resources
     override fun retrofit(): Retrofit
