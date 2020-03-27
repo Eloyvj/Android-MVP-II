@@ -6,11 +6,8 @@ import androidx.test.platform.app.InstrumentationRegistry
 import com.example.moviesmvp.R
 import com.example.moviesmvp.di.DaggerTestAppComponent
 import com.example.moviesmvp.di.TestAppComponent
-import com.example.moviesmvp.di.module.TestApiModule
-import com.example.moviesmvp.di.module.TestAppModule
-import com.example.moviesmvp.di.module.TestOkHttpModule
-import com.example.moviesmvp.di.module.TestRetrofitModule
 import com.example.moviesmvp.Application.App
+import com.example.moviesmvp.di.module.*
 import com.example.moviesmvp.features.popularmovieslist.PopularMoviesActivity
 import com.example.moviesmvp.testApplication.TestApplication
 import okhttp3.mockwebserver.MockWebServer
@@ -41,6 +38,7 @@ class PopularMoviesListAndroidTest {
             .testAppModule(TestAppModule(app))
             .testApiModule(TestApiModule())
             .testOkHttpModule(TestOkHttpModule())
+            .testPopularMoviesInteractorModule(TestPopularMoviesInteractorModule())
             .testRetrofitModule(TestRetrofitModule())
             .build()
         App.appComponent = testAppComponent
