@@ -5,10 +5,9 @@ import android.content.res.Resources
 import com.example.moviesmvp.baseSchedulers.BaseSchedulersImpl
 import com.example.moviesmvp.data.mapper.MovieMapper
 import com.example.moviesmvp.data.network.MyApiEndpointInterface
-import com.example.moviesmvp.di.module.ApiModule
-import com.example.moviesmvp.di.module.AppModule
-import com.example.moviesmvp.di.module.OkHttpModule
-import com.example.moviesmvp.di.module.RetrofitModule
+import com.example.moviesmvp.di.module.*
+import com.example.moviesmvp.features.interactor.PopularMoviesInteractor
+import com.example.moviesmvp.features.interactor.PopularMoviesInteractorImpl
 import com.google.gson.Gson
 import dagger.Component
 import okhttp3.Cache
@@ -18,9 +17,8 @@ import retrofit2.Retrofit
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [AppModule::class, RetrofitModule::class, ApiModule::class, OkHttpModule::class])
+@Component(modules = [AppModule::class, RetrofitModule::class, ApiModule::class, OkHttpModule::class, PopularMoviesInteractorModule::class])
 interface AppComponent {
-    /*val myApiEndpointInterface: MyApiEndpointInterface*/
     fun application(): Application
     fun gson(): Gson
     fun resources(): Resources
@@ -31,4 +29,5 @@ interface AppComponent {
     fun logginInterceptor(): HttpLoggingInterceptor
     fun schedulerProvider(): BaseSchedulersImpl
     fun movieMapper(): MovieMapper
+    fun popularMoviesInteractor(): PopularMoviesInteractor
 }

@@ -20,12 +20,12 @@ open class PopularMoviesModule(private val view: PopularMoviesView) {
         return PopularMoviesFragment()
     }
 
-    @Provides
+    /*@Provides
     open fun providerPopularMoviesInteractor(retrofit: MyApiEndpointInterface,
                                              baseSchedulers: BaseSchedulersImpl,
                                              movieMapper: MovieMapper): PopularMoviesInteractor {
         return PopularMoviesInteractorImpl(retrofit, baseSchedulers, movieMapper)
-    }
+    }*/
 
     @Provides
     open fun providerPopularMoviesPresenter(baseSchedulers: BaseSchedulersImpl,
