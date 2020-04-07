@@ -13,7 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".features.moviedetails.MovieDetailActivity"></activity>
+        <activity android:name=".features.moviedetails.MovieDetailActivity"
+            android:parentActivityName=".features.popularmovieslist.PopularMoviesActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".features.popularmovieslist.PopularMoviesActivity"></meta-data>
+        </activity>
         <activity android:name=".features.popularmovieslist.PopularMoviesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
