@@ -12,6 +12,7 @@ import com.example.moviesmvp.R
 import com.example.moviesmvp.Application.App
 import com.example.moviesmvp.features.popularmovieslist.di.PopularMoviesModule
 import com.example.moviesmvp.data.model.Movie
+import com.example.moviesmvp.features.moviedetails.MovieDetailActivity
 import com.example.moviesmvp.features.popularmovieslist.di.DaggerPopularMoviesComponent
 import kotlinx.android.synthetic.main.error_message_and_load_retry.*
 import kotlinx.android.synthetic.main.fragment_popular_movies.*
@@ -128,8 +129,8 @@ class PopularMoviesFragment : Fragment(), PopularMoviesView {
     private fun openMovieDetailActivity(movieId: Int) {
         activity?.let {
             val id = movieId.toString()
-            /*val intent = MovieDetailActivity.newIntent(it, id)
-            it.startActivity(intent)*/
+            val intent = MovieDetailActivity.newIntent(it, id)
+            it.startActivity(intent)
         }
     }
 }
