@@ -23,17 +23,6 @@ import javax.inject.Singleton
 @Component(modules = [AppModule::class, RetrofitModule::class, ApiModule::class,
     OkHttpModule::class, PopularMoviesInteractorModule::class])
 interface AppComponent {
-   /* fun application(): Application
-    fun gson(): Gson
-    fun resources(): Resources
-    fun retrofit(): Retrofit
-    fun endpoints(): MyApiEndpointInterface
-    fun cache(): Cache
-    fun client(): OkHttpClient
-    fun logginInterceptor(): HttpLoggingInterceptor
-    fun schedulerProvider(): BaseSchedulersImpl
-    fun movieMapper(): MovieMapper
-    fun popularMoviesInteractor(): PopularMoviesInteractor*/
     fun inject(app: App)
 
     fun plus(popularMoviesModules: PopularMoviesComponent.Module): PopularMoviesComponent
