@@ -9,7 +9,7 @@ import com.example.moviesmvp.Application.App
 import com.example.moviesmvp.R
 import com.example.moviesmvp.data.model.Genre
 import com.example.moviesmvp.data.model.MovieDetail
-import com.example.moviesmvp.features.moviedetails.di.DaggerMovieDetailComponent
+import com.example.moviesmvp.features.moviedetails.di.MovieDetailComponent
 import com.example.moviesmvp.features.moviedetails.di.MovieDetailModule
 import kotlinx.android.synthetic.main.activity_movie_detail.*
 import kotlinx.android.synthetic.main.error_message_and_load_retry.*
@@ -31,12 +31,9 @@ class MovieDetailActivity : AppCompatActivity(), MovieDetailView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_detail)
 
-        DaggerMovieDetailComponent
-            .builder()
-            .appComponent(App.getComponent())
-            .movieDetailModule(MovieDetailModule(this))
-            .build()
-            .inject(this)
+        App.getComponent()?.also {
+            it.plus(MovieDetailComponent.Module(this)).inject(this)
+        }
 
         movieId = this.intent.getStringExtra(MOVIE_ID);
         presenter.getMovieDetail(movieId.toInt())

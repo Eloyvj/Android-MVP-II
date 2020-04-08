@@ -13,7 +13,7 @@ import com.example.moviesmvp.Application.App
 import com.example.moviesmvp.features.popularmovieslist.di.PopularMoviesModule
 import com.example.moviesmvp.data.model.Movie
 import com.example.moviesmvp.features.moviedetails.MovieDetailActivity
-import com.example.moviesmvp.features.popularmovieslist.di.DaggerPopularMoviesComponent
+import com.example.moviesmvp.features.popularmovieslist.di.PopularMoviesComponent
 import kotlinx.android.synthetic.main.error_message_and_load_retry.*
 import kotlinx.android.synthetic.main.fragment_popular_movies.*
 import javax.inject.Inject
@@ -48,16 +48,9 @@ class PopularMoviesFragment : Fragment(), PopularMoviesView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        DaggerPopularMoviesComponent
-            .builder()
-            .appComponent(App.getComponent())
-            .popularMoviesModule(
-                PopularMoviesModule(
-                    this
-                )
-            )
-            .build()
-            .inject(this)
+        App.getComponent()?.also {
+            it.plus(PopularMoviesComponent.Module(this)).inject(this)
+        }
 
         setUpRecyclerView()
         presenter.loadItems()
