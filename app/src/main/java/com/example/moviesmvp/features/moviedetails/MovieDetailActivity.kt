@@ -10,7 +10,6 @@ import com.example.moviesmvp.R
 import com.example.moviesmvp.data.model.Genre
 import com.example.moviesmvp.data.model.MovieDetail
 import com.example.moviesmvp.features.moviedetails.di.MovieDetailComponent
-import com.example.moviesmvp.features.moviedetails.di.MovieDetailModule
 import kotlinx.android.synthetic.main.activity_movie_detail.*
 import kotlinx.android.synthetic.main.error_message_and_load_retry.*
 import javax.inject.Inject

@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moviesmvp.R
 import com.example.moviesmvp.Application.App
-import com.example.moviesmvp.features.popularmovieslist.di.PopularMoviesModule
 import com.example.moviesmvp.data.model.Movie
 import com.example.moviesmvp.features.moviedetails.MovieDetailActivity
 import com.example.moviesmvp.features.popularmovieslist.di.PopularMoviesComponent
