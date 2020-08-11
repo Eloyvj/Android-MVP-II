@@ -10,6 +10,7 @@ import com.example.moviesmvp.Application.App
 import com.example.moviesmvp.di.module.*
 import com.example.moviesmvp.features.popularmovieslist.PopularMoviesActivity
 import com.example.moviesmvp.testApplication.TestApplication
+import com.example.moviesmvp.utils.DisableAnimationRule
 import okhttp3.mockwebserver.MockWebServer
 import org.junit.Before
 import org.junit.Rule
@@ -21,7 +22,7 @@ import javax.inject.Inject
 @RunWith(AndroidJUnit4::class)
 class PopularMoviesListAndroidTest {
 
-    private val popularMoviesListFake = "popular_movies_p1.json"
+    private val POPULAR_MOVIES_LIST = "popular_movies_p1.json"
     private lateinit var testAppComponent: TestAppComponent
 
     @Inject
@@ -30,6 +31,9 @@ class PopularMoviesListAndroidTest {
     @get:Rule
     var mActivityTestRule = IntentsTestRule(PopularMoviesActivity::class.java, true,
         false)
+
+    @get:Rule
+    val disableAnimationRule = DisableAnimationRule()
 
     @Before
     fun setUp() {
@@ -47,10 +51,14 @@ class PopularMoviesListAndroidTest {
 
     @Test
     fun whenLoadPopularMoviesList_shouldShowAllFields() {
-        popularMoviesList {
-            mockService(popularMoviesListFake, mockWebServer)
+        arrange {
+            mockService(POPULAR_MOVIES_LIST, mockWebServer)
             launchActivity(mActivityTestRule)
+        }
+        act {
             scrollToPositionInList(R.id.recyclerview_main_movies_list, 0)
+        }
+        assert {
             movieTitleIsDisplayed("Sonic the Hedgehog")
             moviePosterIsDisplayed(
                 R.id.recyclerview_main_movies_list, 0,

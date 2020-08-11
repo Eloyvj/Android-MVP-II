@@ -24,9 +24,11 @@ import okhttp3.mockwebserver.MockWebServer
 import okhttp3.mockwebserver.RecordedRequest
 import org.hamcrest.CoreMatchers.allOf
 
-fun popularMoviesList(func: PopularMoviesListRobot.() -> Unit) = PopularMoviesListRobot().apply { func() }
+class arrange(action: arrange.() -> Unit): BaseTestRobot() {
+    init {
+        action.invoke(this)
+    }
 
-class PopularMoviesListRobot: BaseTestRobot() {
     fun launchActivity(intentTestRule: IntentsTestRule<PopularMoviesActivity>) {
         intentTestRule.launchActivity(null)
     }
@@ -47,14 +49,12 @@ class PopularMoviesListRobot: BaseTestRobot() {
         }
         mockWebServer.setDispatcher(dispatcher)
     }
+}
 
-    fun movieTitleIsDisplayed(title: String) = matchTextViewByTextIsDisplayed(title)
-
-    fun moviePosterIsDisplayed(recyclerId: Int, position: Int, imageViewId: Int) =
-        matchImageViewIntoRecyclerViewIsDisplayed(recyclerId, position, imageViewId)
-
-    fun favoriteIconIsDisplayed(recyclerId: Int, position: Int, imageViewId: Int) =
-        matchImageViewIntoRecyclerViewIsDisplayed(recyclerId, position, imageViewId)
+class act(action: act.() -> Unit): BaseTestRobot() {
+    init {
+        action.invoke(this)
+    }
 
     fun scrollToPositionInList(recyclerId: Int, position: Int) = onView(ViewMatchers.withId(recyclerId))
         .perform(RecyclerViewActions.scrollToPosition<PopularMoviesAdapter.ViewHolder>(position))
@@ -63,15 +63,21 @@ class PopularMoviesListRobot: BaseTestRobot() {
         .perform(RecyclerViewActions.actionOnItemAtPosition<PopularMoviesAdapter.ViewHolder>(position,
             ViewActions.click()))
 
-    fun intendedMovieDetail(className: String,
-                            extraKeyMovieId: String,
-                            extraValueMovieId: String) {
-        intended(hasComponent(className))
-        intended(hasExtra(extraKeyMovieId, extraValueMovieId))
-    }
-
     fun fillSearchView(text: String) = onView(isAssignableFrom(EditText::class.java))
         .perform(typeText(text), pressImeActionButton())
+}
+
+class assert(action: assert.() -> Unit): BaseTestRobot() {
+    init {
+        action.invoke(this)
+    }
+    fun movieTitleIsDisplayed(title: String) = matchTextViewByTextIsDisplayed(title)
+
+    fun moviePosterIsDisplayed(recyclerId: Int, position: Int, imageViewId: Int) =
+        matchImageViewIntoRecyclerViewIsDisplayed(recyclerId, position, imageViewId)
+
+    fun favoriteIconIsDisplayed(recyclerId: Int, position: Int, imageViewId: Int) =
+        matchImageViewIntoRecyclerViewIsDisplayed(recyclerId, position, imageViewId)
 
     fun emptyStateMessageForSearchIsDisplayed(text: String) = matchTextViewByTextIsDisplayed(text)
 
@@ -80,5 +86,13 @@ class PopularMoviesListRobot: BaseTestRobot() {
     fun movieTitleSearchedIsDisplayed(recyclerId: Int, position: Int, text: String) =
         onView(withId(recyclerId)).check(matches(
             Utils.withViewAtPosition(position,
-            hasDescendant(allOf(withText(text), isDisplayed())))))
+                hasDescendant(allOf(withText(text), isDisplayed())))))
+
+    fun intendedMovieDetail(className: String,
+                            extraKeyMovieId: String,
+                            extraValueMovieId: String) {
+        intended(hasComponent(className))
+        intended(hasExtra(extraKeyMovieId, extraValueMovieId))
+    }
 }
+
